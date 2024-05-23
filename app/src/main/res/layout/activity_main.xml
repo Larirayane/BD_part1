@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome" />
+
+    <Button
+        android:id="@+id/buttonCadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar" />
+
+    <Button
+        android:id="@+id/buttonAlterar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alterar" />
+
+    <Button
+        android:id="@+id/buttonDeletar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Deletar" />
+
+    <Button
+        android:id="@+id/buttonListar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listar" />
+
+    <TextView
+        android:id="@+id/textViewPessoas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pessoas:" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
