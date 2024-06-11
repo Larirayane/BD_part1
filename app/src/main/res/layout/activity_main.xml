@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,25 +18,33 @@
         android:id="@+id/buttonCadastrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cadastrar" />
+        android:backgroundTint="#00BCD4"
+        android:text="Cadastrar"
+        app:cornerRadius="1dp" />
 
     <Button
         android:id="@+id/buttonAlterar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Alterar" />
+        android:backgroundTint="#00BCD4"
+        android:text="Alterar"
+        app:cornerRadius="1dp" />
 
     <Button
         android:id="@+id/buttonDeletar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Deletar" />
+        android:backgroundTint="#00BCD4"
+        android:text="Deletar"
+        app:cornerRadius="1dp" />
 
     <Button
         android:id="@+id/buttonListar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Listar" />
+        android:backgroundTint="#00BCD4"
+        android:text="Listar"
+        app:cornerRadius="1dp" />
 
     <TextView
         android:id="@+id/textViewPessoas"

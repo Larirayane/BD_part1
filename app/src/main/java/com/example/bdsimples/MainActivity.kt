@@ -17,6 +17,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textViewPessoas: TextView
     private lateinit var listView: ListView
 
+    private val bd by lazy {
+        DataBaseHelper(this)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,21 +43,49 @@ class MainActivity : AppCompatActivity() {
 
     // Função para cadastrar
     private fun cadastrar() {
-        Toast.makeText(this, "Botão Cadastrar clicado", Toast.LENGTH_SHORT).show()
+        var sql = "INSERT INTO cadastroPessoa VALUES(null, 'Larissa Rayane');"
+
+        try {
+            bd.writableDatabase.execSQL(sql)
+            Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show()
+        }
     }
 
     // Função para alterar
     private fun alterar() {
-        Toast.makeText(this, "Botão Alterar clicado", Toast.LENGTH_SHORT).show()
+        var sql = "UPDATE cadastroPessoa SET nome = 'Rayane' WHERE id_pessoa = 2;"
+        try {
+            bd.writableDatabase.execSQL(sql)
+            Toast.makeText(this, "Alterado com sucesso", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show()
+        }
     }
 
     // Função para deletar
     private fun deletar() {
-        Toast.makeText(this, "Botão Deletar clicado", Toast.LENGTH_SHORT).show()
+        var sql = "delete from cadastroPessoa where id_pessoa = 2"
+        try {
+            bd.writableDatabase.execSQL(sql)
+            Toast.makeText(this, "Deletado com sucesso", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show()
+        }
     }
 
     // Função para listar
     private fun listar() {
-        Toast.makeText(this, "Botão Listar clicado", Toast.LENGTH_SHORT).show()
+        var sql = "SELECT * FROM cadastroPessoa"
+        var cursor = bd.readableDatabase.rawQuery(sql, null)
+        val indiceId = cursor.getColumnIndex("id_pessoa")
+        val indiceNome = cursor.getColumnIndex("nome")
+        while (cursor.moveToNext()) {
+
+            var idPessoa = cursor.getInt(indiceId)
+            var nomePessoa = cursor.getString(indiceNome)
+            Toast.makeText(this, "$idPessoa - $nomePessoa", Toast.LENGTH_SHORT).show()
+        }
     }
 }
